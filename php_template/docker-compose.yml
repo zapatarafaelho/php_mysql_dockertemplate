@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.1
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_pw_shh
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    ports:
+      - "9906:3306"
+  web:
+    image: php_template:7.4
+    container_name: php_template
+    build:
+      context: .
+    depends_on:
+      - db
+    volumes:
+      - ./src/:/var/www/html/
+    ports:
+      - "3070:80"
+    stdin_open: true
+    tty: true
+
+
+volumes:
+  src: {}
