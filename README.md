@@ -6,7 +6,7 @@ If you want other version of Php just change it in the Dockerfile on:
 
 #FROM php:7.4-apache -> Place the version you want after php:
 
-If you want other version of Php just change it in the docker-compose.yml on:
+If you want other version of MySQL just change it in the docker-compose.yml on:
 #services:
   db:
     image: mysql:8.1 - > Place de version desired after mysql:8.1
